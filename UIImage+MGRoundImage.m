@@ -31,3 +31,22 @@
 }
 
 @end
+
+@implementation UIImageView (MGRoundImageView)
+
+- (void)roundImageView {
+    UIImage *currentImage = self.image;
+    UIGraphicsBeginImageContextWithOptions(currentImage.size, NO, 0);
+    UIBezierPath *bigCircle = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, self.size.width, self.size.height)];
+
+    [bigCircle addClip];
+    [self drawAtPoint:CGPointZero];
+    // 拿到图片
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    // 关闭上下文
+    UIGraphicsEndImageContext();
+    self.image = image;
+
+}
+
+@end

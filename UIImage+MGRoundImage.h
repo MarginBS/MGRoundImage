@@ -14,3 +14,9 @@
 
 - (UIImage *)roundImageWithborder:(CGFloat)border color:(UIColor *)color;
 @end
+
+
+@interface UIImageView (MGRoundImageView)
+
+- (void)roundImageView;
+@end
